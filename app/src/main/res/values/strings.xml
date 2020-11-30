@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">marvelHQs</string>
+    <string name="welcome">Welcome to the Marvel HQs</string>
+    <string name="til_username">Email</string>
+    <string name="til_password">Password</string>
+    <string name="btn_login">Log In</string>
+    <string name="create_account">Create account</string>
+    <string name="remember">Remember</string>
+    <string name="title_activity_register_activity">Register</string>
+</resources>
