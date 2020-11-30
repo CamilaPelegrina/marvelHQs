@@ -12,10 +12,10 @@ class RegisterActivity: AppCompatActivity(){
         setContentView(R.layout.activity_register)
 
 
-        //findViewById<Button>(R.id.btnRegister).setOnClickListener {
-          //  val intent = Intent(this, MainActivity::class.java)
-            //startActivity(intent)
-        //}
+        findViewById<Button>(R.id.btnRegister).setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
