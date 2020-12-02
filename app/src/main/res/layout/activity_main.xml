@@ -8,10 +8,12 @@
     android:background="@color/dark_blue">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerHome"
+        android:id="@+id/rv_recyclerHome"
+        android:padding="17dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="3"/>
+        app:spanCount="3"
+        tools:listitem="@layout/hq_cover"/>
 
 </androidx.core.widget.NestedScrollView>
