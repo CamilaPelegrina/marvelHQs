@@ -11,10 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelhqs.R
 import com.example.marvelhqs.adapters.HqAdapter
+import com.example.marvelhqs.domain.Results
 import com.example.marvelhqs.service.repository
 import com.example.marvelhqs.viewModel.HqDetailViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -23,6 +25,7 @@ class FragmentHome : Fragment() {
 
     lateinit var HqAdapter: HqAdapter
     lateinit var GridLayoutManager: GridLayoutManager
+
     var offset = 0
     var limit = 12
 

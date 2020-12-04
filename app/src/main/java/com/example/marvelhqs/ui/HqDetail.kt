@@ -8,12 +8,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelhqs.R
+import com.example.marvelhqs.domain.Results
 import com.example.marvelhqs.viewModel.HqDetailViewModel
+import kotlin.properties.Delegates
 
 class HqDetail : Fragment() {
+
+    var listaHq = ArrayList<Results>()
+    var position by Delegates.notNull<Int>()
+
+    private val ViewModel: HqDetailViewModel by activityViewModels()
 
     companion object {
         fun newInstance() = HqDetail()
@@ -27,11 +35,26 @@ class HqDetail : Fragment() {
         return inflater.inflate(R.layout.hq_detail_fragment, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        position = arguments?.getInt("position")!!
+        var hqSelected = listaHq[position]
+
+        view.findViewById<TextView>(R.id.txtTitulo).text = "#${hqSelected.title}"
+
+
+
+    }
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(HqDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
+
+
 
     inner class HqViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var HqCover: ImageView = itemView.findViewById(R.id.imgCover)

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_fragments"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.marvelhqs.ui.FragmentHome"
+        android:label="FragmentHome" >
+        <action
+            android:id="@+id/action_fragmentHome_to_hqDetail2"
+            app:destination="@id/hqDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/hqDetail"
+        android:name="com.example.marvelhqs.ui.HqDetail"
+        android:label="hq_detail_fragment"
+        tools:layout="@layout/hq_detail_fragment" />
+</navigation>

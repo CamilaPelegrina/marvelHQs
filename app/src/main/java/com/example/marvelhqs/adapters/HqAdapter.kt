@@ -1,5 +1,6 @@
 package com.example.marvelhqs.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.hq_cover.view.*
 class HqAdapter(val listener: FragmentHome) : RecyclerView.Adapter<HqAdapter.HqViewHolder>() {
 
     var listaHq = ArrayList<Results>()
+    private lateinit var hqSelected: Results
 
     override fun onCreateViewHolder(
             parent: ViewGroup,
@@ -33,22 +35,29 @@ class HqAdapter(val listener: FragmentHome) : RecyclerView.Adapter<HqAdapter.HqV
     }
 
     override fun onBindViewHolder(holder: HqViewHolder, position: Int) {
-        var hq = listaHq[position]
+        var hqSelected = listaHq[position]
         Glide.with(holder.itemView.context).asBitmap()
-            .load(replaceHttps("${hq.thumbnail.path}.${hq.thumbnail.extension}"))
+            .load(replaceHttps("${hqSelected.thumbnail.path}.${hqSelected.thumbnail.extension}"))
             .into(holder.HqCover)
-        holder.HqNumero.text = "#${hq.issueNumber}"
-
+        holder.HqNumero.text = "#${hqSelected.issueNumber}"
 
 
         holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("position", position)
+            val HqDetail = HqDetail()
+            HqDetail.arguments = bundle
+            MainActivity.fm.beginTransaction().replace(R.id.fragmentContainer, HqDetail, null)
+                    .addToBackStack(null).commit()
 
-            MainActivity.fm.beginTransaction().replace(R.id.fragmentContainer, HqDetail(), null)
-                .addToBackStack(null).commit()
+//            view.findNavController().navigate(R.id.action_fragmentHome_to_hqDetail2)
         }
     }
 
+
+
     override fun getItemCount(): Int = listaHq.size
+
 
     fun addList(list: ArrayList<Results>){
         listaHq.addAll(list)
