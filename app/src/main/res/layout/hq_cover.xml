@@ -16,11 +16,12 @@
     
         <ImageView
             android:id="@+id/imgCover"
-            android:layout_width="110dp"
-            android:layout_height="167dp"
+            android:layout_width="99dp"
+            android:layout_height="150dp"
             android:background="@color/white"
-            android:padding="10dp"
-            android:scaleType="centerCrop"
+            android:padding="5dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
             tools:src="@drawable/splash_image">
         </ImageView>
 

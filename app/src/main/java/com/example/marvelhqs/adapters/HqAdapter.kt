@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marvelhqs.R
@@ -36,21 +37,22 @@ class HqAdapter(val listener: FragmentHome) : RecyclerView.Adapter<HqAdapter.HqV
 
     override fun onBindViewHolder(holder: HqViewHolder, position: Int) {
         var hqSelected = listaHq[position]
+        var navController: NavController? = null
+
         Glide.with(holder.itemView.context).asBitmap()
             .load(replaceHttps("${hqSelected.thumbnail.path}.${hqSelected.thumbnail.extension}"))
             .into(holder.HqCover)
         holder.HqNumero.text = "#${hqSelected.issueNumber}"
-
 
         holder.itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("position", position)
             val HqDetail = HqDetail()
             HqDetail.arguments = bundle
-            MainActivity.fm.beginTransaction().replace(R.id.fragmentContainer, HqDetail, null)
-                    .addToBackStack(null).commit()
 
-//            view.findNavController().navigate(R.id.action_fragmentHome_to_hqDetail2)
+
+            MainActivity.fm.beginTransaction().replace(R.id.fragmentContainer, HqDetail, null)
+                   .addToBackStack(null).commit()
         }
     }
 

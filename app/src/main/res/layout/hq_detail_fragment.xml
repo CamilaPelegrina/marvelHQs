@@ -135,15 +135,19 @@
             </androidx.core.widget.NestedScrollView>
         </LinearLayout>
 
-        <include
-            layout="@layout/hq_cover"
+        <ImageView
+            android:id="@+id/img_cover"
             android:layout_width="110dp"
-            android:layout_height="170dp"
+            android:layout_height="167dp"
             android:elevation="1dp"
             android:layout_marginTop="130dp"
             android:layout_marginStart="23dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/splash_image"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
